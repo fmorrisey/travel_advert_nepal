@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, EffectFade } from "swiper";
@@ -12,6 +12,8 @@ import Slide3Img from "../../assets/images/Iqx-azmi-nepal.jpeg";
 import UnderLine from "../../assets/icons/underline.png";
 
 import PlaceIcon from "../../assets/icons/ic_place.png";
+import MountainIcon from "../../assets/icons/ic_terrain.png";
+import HikingIcon from "../../assets/icons/ic_directions_walk.png";
 
 import TitleImg from "../../assets/icons/nepal_title_alt.png";
 
@@ -24,14 +26,48 @@ import "swiper/components/navigation/navigation.scss";
 SwiperCore.use([Navigation, EffectFade]);
 
 export default function TravelSlides() {
-  function NavBox(props) {
+  const [slideIndex, setSlideIndex] = useState(null);
+
+  function SlideNav() {
     return (
-      <a className=" nav nav-box">
-        <img className="icon-nav" src={PlaceIcon} />
-        <h2 className="nav-title">Kathmandu</h2>
+      <div className="nav">
+        <NavBox
+          leftIcon={PlaceIcon}
+          title="Kathmandu"
+          tagline="The Royal Palace"
+          activeSlide={0}
+        />
+        <NavBox
+          leftIcon={MountainIcon}
+          title="Mt. Everest"
+          tagline="Peak of Heaven"
+          activeSlide={1}
+        />
+        <NavBox
+          leftIcon={HikingIcon}
+          title="Annapurna"
+          tagline="Sanctuary Trail"
+          activeSlide={2}
+        />
+      </div>
+    );
+  }
+
+  function NavBox(props) {
+    console.log("here", slideIndex);
+    return (
+      <div
+        className={
+          slideIndex === props.activeSlide ? "nav-box__active" : "nav-box"
+        }
+      >
+        <span>
+          <img className="icon-nav" src={props.leftIcon} />
+          <text className="nav-title">{props.title}</text>
+        </span>
         <img className="nav-underline" src={UnderLine} />
-        <text className="nav-description">The Royal City</text>
-      </a>
+        <span className="nav-description">{props.tagline}</span>
+      </div>
     );
   }
 
@@ -46,19 +82,21 @@ export default function TravelSlides() {
   return (
     <>
       <NepalTitle />
-      <NavBox />
       <Swiper
         effect="fade"
-        className="slide-wrapper"
+        className="slide-wrapper noselect"
         spaceBetween={0}
         slidesPerView={1}
         navigation
         //   pagination={{ clickable: false }}
         //   scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        onSwiper={(e) => setSlideIndex(e.realIndex)}
+        onSlideChange={(e) => setSlideIndex(e.realIndex)}
+        watchSlidesVisibility
+        watchSlidesProgress
       >
         <SwiperSlide>
+          <SlideNav />
           <img
             className="slide-image"
             src={Slide1Img}
@@ -66,6 +104,7 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
+          <SlideNav />
           <img
             className="slide-image"
             src={Slide2Img}
@@ -73,6 +112,7 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
+          <SlideNav />
           <img
             className="slide-image"
             src={Slide3Img}

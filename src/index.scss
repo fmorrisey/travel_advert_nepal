@@ -8,6 +8,19 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 
 code {
@@ -16,35 +29,56 @@ code {
 }
 
 .icon {
+  &-nav {
+    display: inline-block;
+    margin-right: 1rem;
+  }
 }
 
 .nav {
+  display: flex;
   cursor: pointer;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  transform: translate(35%, -60%);
+  position: absolute;
+  z-index: 20;
 
   &-box {
+    position: relative;
+    bottom: 0;
+    z-index: 20;
     border-radius: 25px;
     padding: 2rem;
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translate(150%, -50%);
-    background-color: rgba(200, 200, 200, 0.75);
 
     color: $text-color;
+    margin-left: 2vw;
+
+    background-color: rgba(255, 255, 255, 0.15);
 
     transition: ease-in-out 300ms;
-    .underline {
-      display: flex;
-    }
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+
     &:hover {
-      background-color: rgba(225, 225, 225, 0.9);
+      background-color: rgba(200, 200, 200, 0.5);
+      //   background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      -moz-backdrop-filter: blur(5px);
+    }
+
+    &__active {
+      @extend .nav-box;
+      background-color: rgba(225, 225, 225, 0.7);
     }
   }
 
   &-title {
-    display: flex;
-    justify-content: flex-end;
+    display: inline-block;
     font-size: 3rem;
     color: $text-color;
     font-family: $main-font;
@@ -72,15 +106,22 @@ code {
 .slide {
   position: relative;
   height: 100%;
+  z-index: -10;
 
   &-title {
-    z-index: 10;
+    z-index: 20;
     position: relative;
+
     img {
-      position: absolute;
+      opacity: 1;
+      transform: translate(25%, 55%);
       top: 50;
       left: 50;
-      transform: translate(25%, 55%);
+      position: absolute;
+      transition: ease-in-out 300ms;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
