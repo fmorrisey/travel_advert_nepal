@@ -5,6 +5,8 @@ import SwiperCore, { Navigation, EffectFade } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import TitleImg from "../../assets/icons/nepal_title_alt.png";
+
 import Slide1Img from "../../assets/images/raimond-klavins-nepal.jpeg";
 import Slide2Img from "../../assets/images/benjamin-grant-nepal.jpeg";
 import Slide3Img from "../../assets/images/Iqx-azmi-nepal.jpeg";
@@ -15,7 +17,8 @@ import PlaceIcon from "../../assets/icons/ic_place.png";
 import MountainIcon from "../../assets/icons/ic_terrain.png";
 import HikingIcon from "../../assets/icons/ic_directions_walk.png";
 
-import TitleImg from "../../assets/icons/nepal_title_alt.png";
+import LeftArrow from "../../assets/icons/ic_arrow_left_24px.png";
+import RightArrow from "../../assets/icons/ic_arrow_right_24px.png";
 
 // Import Swiper styles
 import "swiper/swiper.scss";
@@ -28,7 +31,19 @@ SwiperCore.use([Navigation, EffectFade]);
 export default function TravelSlides() {
   const [slideIndex, setSlideIndex] = useState(null);
 
-  function SlideNav() {
+  function SlideNavButton() {
+    return (
+      <span
+        className={
+          slideIndex === 0 ? "nav-button nav-button__fix" : "nav-button"
+        }
+      >
+        1 / {slideIndex + 1}
+      </span>
+    );
+  }
+
+  function SlideNavbar() {
     return (
       <div className="nav">
         <NavBox
@@ -54,7 +69,6 @@ export default function TravelSlides() {
   }
 
   function NavBox(props) {
-    console.log("here", slideIndex);
     return (
       <div
         className={
@@ -73,7 +87,7 @@ export default function TravelSlides() {
 
   function NepalTitle() {
     return (
-      <div className="slide-title">
+      <div className="slide-explore-nepal">
         <img src={TitleImg} />
       </div>
     );
@@ -82,6 +96,7 @@ export default function TravelSlides() {
   return (
     <>
       <NepalTitle />
+      <SlideNavButton />
       <Swiper
         effect="fade"
         className="slide-wrapper noselect"
@@ -96,7 +111,7 @@ export default function TravelSlides() {
         watchSlidesProgress
       >
         <SwiperSlide>
-          <SlideNav />
+          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide1Img}
@@ -104,7 +119,7 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <SlideNav />
+          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide2Img}
@@ -112,7 +127,7 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <SlideNav />
+          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide3Img}

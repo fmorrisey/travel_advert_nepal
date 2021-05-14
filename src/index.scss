@@ -35,6 +35,33 @@ code {
   }
 }
 
+.swiper-button {
+  background-size: 100% auto;
+  background-position: center;
+  bottom: 0;
+  z-index: 10;
+  background-repeat: no-repeat;
+
+  &-next {
+    @extend .swiper-button;
+    background-image: url(./assets/icons/ic_arrow_right_24px.png);
+    transform: translate(-90%, 975%);
+
+    &::after {
+      display: none;
+    }
+  }
+  &-prev {
+    @extend .swiper-button;
+    background-image: url(./assets/icons/ic_arrow_left_24px.png);
+    transform: translate(5750%, 975%);
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
 .nav {
   display: flex;
   cursor: pointer;
@@ -51,7 +78,7 @@ code {
     bottom: 0;
     z-index: 20;
     border-radius: 25px;
-    padding: 2rem;
+    padding: 1.5rem;
 
     color: $text-color;
     margin-left: 2vw;
@@ -94,7 +121,23 @@ code {
     display: block;
     text-align: center;
     font-family: $alt-font;
-    font-size: 2rem;
+    font-weight: lighter;
+    font-size: 1.5rem;
+  }
+
+  &-button {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-100%, -100%);
+    bottom: 0;
+    right: 0;
+    color: $text-color;
+    font-size: 3rem;
+    font-family: $main-font;
+    &__fix {
+      // This fixes the moving numbers
+      padding-right: 0.65rem;
+    }
   }
 }
 
@@ -108,13 +151,13 @@ code {
   height: 100%;
   z-index: -10;
 
-  &-title {
+  &-explore-nepal {
     z-index: 20;
     position: relative;
 
     img {
       opacity: 1;
-      transform: translate(25%, 55%);
+      transform: translate(25%, 75%);
       top: 50;
       left: 50;
       position: absolute;
