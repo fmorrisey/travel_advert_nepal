@@ -1,0 +1,92 @@
+@import "./assets/sass/variables";
+@import "./assets/sass/fonts";
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.icon {
+}
+
+.nav {
+  cursor: pointer;
+
+  &-box {
+    border-radius: 25px;
+    padding: 2rem;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(150%, -50%);
+    background-color: rgba(200, 200, 200, 0.75);
+
+    color: $text-color;
+
+    transition: ease-in-out 300ms;
+    .underline {
+      display: flex;
+    }
+    &:hover {
+      background-color: rgba(225, 225, 225, 0.9);
+    }
+  }
+
+  &-title {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 3rem;
+    color: $text-color;
+    font-family: $main-font;
+    text-align: right;
+  }
+
+  &-underline {
+    display: flex;
+    margin: 0.5rem auto;
+  }
+
+  &-description {
+    display: block;
+    text-align: center;
+    font-family: $alt-font;
+    font-size: 2rem;
+  }
+}
+
+.slide-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  position: relative;
+  height: 100%;
+
+  &-title {
+    z-index: 10;
+    position: relative;
+    img {
+      position: absolute;
+      top: 50;
+      left: 50;
+      transform: translate(25%, 55%);
+    }
+  }
+
+  &-image {
+    object-fit: cover;
+    width: 100%;
+    z-index: 0;
+  }
+}
