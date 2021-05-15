@@ -103,10 +103,12 @@ export default function TravelSlides() {
         spaceBetween={0}
         slidesPerView={1}
         navigation
+        loop
         //   pagination={{ clickable: false }}
         //   scrollbar={{ draggable: true }}
         onSwiper={(e) => setSlideIndex(e.realIndex)}
         onSlideChange={(e) => setSlideIndex(e.realIndex)}
+        slideTo
         watchSlidesVisibility
         watchSlidesProgress
       >
