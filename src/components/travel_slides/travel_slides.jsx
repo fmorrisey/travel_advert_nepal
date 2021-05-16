@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, EffectFade } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// Assets Import
 import TitleImg from "../../assets/icons/nepal_title_alt.png";
 
 import Slide1Img from "../../assets/images/raimond-klavins-nepal.jpeg";
