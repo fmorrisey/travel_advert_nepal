@@ -98,6 +98,7 @@ export default function TravelSlides() {
     <>
       <NepalTitle />
       <SlideNavButton />
+      <SlideNavbar />
       <Swiper
         effect="fade"
         className="slide-wrapper noselect"
@@ -114,7 +115,6 @@ export default function TravelSlides() {
         watchSlidesProgress
       >
         <SwiperSlide>
-          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide1Img}
@@ -122,7 +122,6 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide2Img}
@@ -130,7 +129,6 @@ export default function TravelSlides() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <SlideNavbar />
           <img
             className="slide-image"
             src={Slide3Img}
