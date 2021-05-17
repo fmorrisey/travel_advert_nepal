@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // import Swiper core and required modules
-import SwiperCore, { Navigation, EffectFade } from "swiper";
+import SwiperCore, { Navigation, EffectFade, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Assets Import
@@ -27,7 +27,7 @@ import "swiper/components/effect-fade/effect-fade.scss";
 import "swiper/components/navigation/navigation.scss";
 
 // install Swiper modules
-SwiperCore.use([Navigation, EffectFade]);
+SwiperCore.use([Navigation, EffectFade, Pagination]);
 
 export default function TravelSlides() {
   const [slideIndex, setSlideIndex] = useState(null);
@@ -70,8 +70,12 @@ export default function TravelSlides() {
   }
 
   function NavBox(props) {
+    function clickedMe() {
+      setSlideIndex(props.activeSlide);
+    }
     return (
       <div
+        onClick={clickedMe}
         className={
           slideIndex === props.activeSlide ? "nav-box__active" : "nav-box"
         }
@@ -104,15 +108,18 @@ export default function TravelSlides() {
         className="slide-wrapper noselect"
         spaceBetween={0}
         slidesPerView={1}
+        // slideToClickedSlide={true}
         navigation
         loop
         //   pagination={{ clickable: false }}
         //   scrollbar={{ draggable: true }}
         onSwiper={(e) => setSlideIndex(e.realIndex)}
         onSlideChange={(e) => setSlideIndex(e.realIndex)}
-        slideTo
-        watchSlidesVisibility
-        watchSlidesProgress
+        slideTo={slideIndex}
+        watchSlidesVisibility={true}
+        watchSlidesProgress={true}
+        observer={true}
+        observeParents={true}
       >
         <SwiperSlide>
           <img
