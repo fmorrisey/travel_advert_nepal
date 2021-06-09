@@ -103,6 +103,7 @@ export default function TravelSlides() {
         <span className="menu-nav">
           <span className="menu-item">Flights</span>
           <span className="menu-item">Hotels</span>
+          <span className="menu-item">Food</span>
           <span className="menu-item">Contact</span>
           <span className="menu-item menu-button">
             <img src={MenuIcon} />
