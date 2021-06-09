@@ -145,9 +145,70 @@ code {
 
 .menu {
   max-width: 100vw;
-  top: 0;
+  display: flex;
   transform: translateY(-20%);
   z-index: 20;
+  margin-top: 2vw;
+  margin-left: 2vw;
+  top: 0;
+  left: 0;
+
+  position: absolute;
+
+  &-nav {
+    align-items: center;
+    margin-left: 2vw;
+  }
+
+  &-item {
+    justify-content: flex-end;
+    flex-direction: row;
+    color: $text-color;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-left: 5vw;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+      transform: scale(2);
+    }
+  }
+
+  &-button {
+    cursor: pointer;
+  }
+
+  .search {
+    position: relative;
+
+    z-index: 20;
+
+    & > input {
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(200, 200, 200, 0.75);
+      border-radius: 1vw;
+      padding: 1rem;
+      font-size: 1.11vw;
+      padding: 17px;
+      padding-left: 55px;
+      width: 650px;
+      border: 1px solid #f5f5f5;
+      color: gray;
+      background-image: url("./assets/icons/ic_search.png");
+      background-repeat: no-repeat;
+      background-position: 20px center;
+      outline: 0;
+    }
+
+    &-icon {
+      height: 100%;
+      width: 100%;
+      margin-right: 0.5vw;
+    }
+  }
 }
 
 .slide-wrapper {
@@ -171,10 +232,6 @@ code {
       left: 50;
       position: absolute;
       transition: ease-in-out 300ms;
-
-      &:hover {
-        opacity: 0.8;
-      }
     }
   }
 
@@ -182,37 +239,5 @@ code {
     object-fit: cover;
     width: 100%;
     z-index: 0;
-  }
-}
-
-.search {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  z-index: 20;
-
-  & > input {
-    background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(200, 200, 200, 0.75);
-    border-radius: 1vw;
-    padding: 1rem;
-    font-size: 1.11vw;
-    padding: 17px;
-    padding-left: 55px;
-    width: 650px;
-    border: 1px solid #f5f5f5;
-    color: gray;
-    background-image: url("./assets/icons/ic_search.png");
-    background-repeat: no-repeat;
-    background-position: 20px center;
-    outline: 0;
-  }
-
-  &-icon {
-    height: 100%;
-    width: 100%;
-    margin-right: 0.5vw;
   }
 }

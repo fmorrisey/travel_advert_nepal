@@ -17,8 +17,7 @@ import UnderLine from "../../assets/icons/underline.png";
 import PlaceIcon from "../../assets/icons/ic_place.png";
 import MountainIcon from "../../assets/icons/ic_terrain.png";
 import HikingIcon from "../../assets/icons/ic_directions_walk.png";
-
-import SearchIcon from "../../assets/icons/ic_search.png";
+import MenuIcon from "../../assets/icons/ic_menu.png";
 
 import LeftArrow from "../../assets/icons/ic_arrow_left_24px.png";
 import RightArrow from "../../assets/icons/ic_arrow_right_24px.png";
@@ -97,9 +96,18 @@ export default function TravelSlides() {
 
   function MenuBar(props) {
     return (
-      <navbar className="menu menu-bar">
+      <navbar className="menu">
         <span className="search">
           <input type="search" placeholder="Search"></input>
+        </span>
+        <span className="menu-nav">
+          <span className="menu-item">Flights</span>
+          <span className="menu-item">Hotels</span>
+          <span className="menu-item">Food</span>
+          <span className="menu-item">Contact</span>
+          <span className="menu-item menu-button">
+            <img src={MenuIcon} />
+          </span>
         </span>
       </navbar>
     );
