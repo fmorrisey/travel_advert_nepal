@@ -122,11 +122,13 @@ export default function TravelSlides() {
         observeParents={true}
       >
         <SwiperSlide>
-          <img
-            className="slide-image"
-            src={Slide1Img}
-            alt="Stupa Bodhnath Kathmandu, Nepal"
-          />
+          {slideIndex === 0 && (
+            <img
+              className="slide-image"
+              src={Slide1Img}
+              alt="Stupa Bodhnath Kathmandu, Nepal"
+            />
+          )}
         </SwiperSlide>
         <SwiperSlide>
           <img
