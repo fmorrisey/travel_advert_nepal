@@ -138,43 +138,37 @@ export default function TravelSlides() {
         observeParents={true}
       >
         {/* SLIDE 1, i = 0 */}
-        <SwiperSlide>
-          {slideIndex === 0 ? (
+        {slideIndex === 0 && (
+          <SwiperSlide>
             <img
               className="slide-image"
               src={Slide1Img}
               alt="Stupa Bodhnath Kathmandu, Nepal"
             />
-          ) : (
-            <></>
-          )}
-        </SwiperSlide>
+          </SwiperSlide>
+        )}
 
         {/* SLIDE 2, i = 1 */}
-        <SwiperSlide>
-          {slideIndex === 1 ? (
+        {slideIndex === 1 && (
+          <SwiperSlide>
             <img
               className="slide-image"
               src={Slide2Img}
               alt="Gazing upon Himalaya, Nepal"
             />
-          ) : (
-            <></>
-          )}
-        </SwiperSlide>
+          </SwiperSlide>
+        )}
 
         {/* SLIDE 3, i = 2 */}
-        <SwiperSlide>
-          {slideIndex === 2 ? (
+        {slideIndex === 2 && (
+          <SwiperSlide>
             <img
               className="slide-image"
               src={Slide3Img}
               alt="Hike on the Road to Annapurna"
             />
-          ) : (
-            <></>
-          )}
-        </SwiperSlide>
+          </SwiperSlide>
+        )}
       </Swiper>
     </>
   );
