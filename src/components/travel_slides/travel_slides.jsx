@@ -18,6 +18,8 @@ import PlaceIcon from "../../assets/icons/ic_place.png";
 import MountainIcon from "../../assets/icons/ic_terrain.png";
 import HikingIcon from "../../assets/icons/ic_directions_walk.png";
 
+import SearchIcon from "../../assets/icons/ic_search.png";
+
 import LeftArrow from "../../assets/icons/ic_arrow_left_24px.png";
 import RightArrow from "../../assets/icons/ic_arrow_right_24px.png";
 
@@ -30,7 +32,7 @@ import "swiper/components/navigation/navigation.scss";
 SwiperCore.use([Navigation, EffectFade, Pagination]);
 
 export default function TravelSlides() {
-  const [slideIndex, setSlideIndex] = useState(null);
+  const [slideIndex, setSlideIndex] = useState(0);
 
   function SlideNavButton() {
     return (
@@ -52,18 +54,21 @@ export default function TravelSlides() {
           title="Kathmandu"
           tagline="The Royal Palace"
           activeSlide={0}
+          key={"Kathmandu"}
         />
         <NavBox
           leftIcon={MountainIcon}
           title="Mt. Everest"
           tagline="Peak of Heaven"
           activeSlide={1}
+          key={"Mt. Everest"}
         />
         <NavBox
           leftIcon={HikingIcon}
           title="Annapurna"
           tagline="Sanctuary Trail"
           activeSlide={2}
+          key={"Annapurna"}
         />
       </div>
     );
@@ -87,6 +92,17 @@ export default function TravelSlides() {
         <img className="nav-underline" src={UnderLine} />
         <span className="nav-description">{props.tagline}</span>
       </div>
+    );
+  }
+
+  function MenuBar(props) {
+    return (
+      <navbar className="menu menu-bar">
+        <span className="search">
+          <img src={SearchIcon} alt="search travel" />
+          <input type="search" placeholder="Search"></input>
+        </span>
+      </navbar>
     );
   }
 
@@ -121,26 +137,43 @@ export default function TravelSlides() {
         observer={true}
         observeParents={true}
       >
+        {/* SLIDE 1, i = 0 */}
         <SwiperSlide>
-          <img
-            className="slide-image"
-            src={Slide1Img}
-            alt="Stupa Bodhnath Kathmandu, Nepal"
-          />
+          {slideIndex === 0 ? (
+            <img
+              className="slide-image"
+              src={Slide1Img}
+              alt="Stupa Bodhnath Kathmandu, Nepal"
+            />
+          ) : (
+            <></>
+          )}
         </SwiperSlide>
+
+        {/* SLIDE 2, i = 1 */}
         <SwiperSlide>
-          <img
-            className="slide-image"
-            src={Slide2Img}
-            alt="Gazing upon Himalaya, Nepal"
-          />
+          {slideIndex === 1 ? (
+            <img
+              className="slide-image"
+              src={Slide2Img}
+              alt="Gazing upon Himalaya, Nepal"
+            />
+          ) : (
+            <></>
+          )}
         </SwiperSlide>
+
+        {/* SLIDE 3, i = 2 */}
         <SwiperSlide>
-          <img
-            className="slide-image"
-            src={Slide3Img}
-            alt="Hike on the Road to Annapurna"
-          />
+          {slideIndex === 2 ? (
+            <img
+              className="slide-image"
+              src={Slide3Img}
+              alt="Hike on the Road to Annapurna"
+            />
+          ) : (
+            <></>
+          )}
         </SwiperSlide>
       </Swiper>
     </>
