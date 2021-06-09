@@ -99,7 +99,6 @@ export default function TravelSlides() {
     return (
       <navbar className="menu menu-bar">
         <span className="search">
-          <img src={SearchIcon} alt="search travel" />
           <input type="search" placeholder="Search"></input>
         </span>
       </navbar>
@@ -116,6 +115,7 @@ export default function TravelSlides() {
 
   return (
     <>
+      <MenuBar />
       <NepalTitle />
       <SlideNavButton />
       <SlideNavbar />
