@@ -135,7 +135,7 @@ export default function TravelSlides() {
         // slideToClickedSlide={true}
         navigation
         loop
-        //   pagination={{ clickable: false }}
+          pagination={{ clickable: false }}
         //   scrollbar={{ draggable: true }}
         onSwiper={(e) => setSlideIndex(e.realIndex)}
         onSlideChange={(e) => setSlideIndex(e.realIndex)}
